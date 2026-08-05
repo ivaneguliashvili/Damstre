@@ -1,0 +1,42 @@
+{% extends 'attendance/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header text-center">
+        <h3 class="mb-0">რეგისტრაცია</h3>
+      </div>
+      <div class="card-body">
+        <form method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label">სახელი</label>
+            <input type="text" name="first_name" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">გვარი</label>
+            <input type="text" name="last_name" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">როლი</label>
+            <select name="role" class="form-select" required>
+              <option value="student">სტუდენტი</option>
+              <option value="teacher">მასწავლებელი</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">პაროლი</label>
+            <input type="password" name="password" class="form-control" minlength="6" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">რეგისტრაცია</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
